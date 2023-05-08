@@ -10,7 +10,9 @@ toto_number_messages = [
 class RNGService:
     @staticmethod
     def generate_toto_number():
-        toto_numbers = map(str, sorted(np.random.choice(list(range(1, 50)), 6, replace=False)))
+        toto_numbers = map(
+            str, sorted(np.random.choice(list(range(1, 50)), 6, replace=False))
+        )
         toto_numbers_str = ", ".join(toto_numbers)
         return np.random.choice(toto_number_messages).format(toto=toto_numbers_str)
 

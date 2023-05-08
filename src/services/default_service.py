@@ -1,4 +1,6 @@
+from src.services.pick_me_service import PickMeService
 from src.services.rng_service import RNGService
+
 
 def get_reply(text: str):
     reply = f"{text} selected"
@@ -9,7 +11,11 @@ def get_reply(text: str):
         ✨random numbers✨ to huat!\n\nNote: We do not endorse gambling.
         """
     elif text == "/choices":
-        print("Choices selected")
+        reply = (
+            "Type 'Choose <options separated by comma>' to ask bot to pick one option"
+        )
+    elif text.startswith("Choose "):
+        reply = PickMeService.n_choose_1(text.lstrip("Choose "))
     elif text == "/toto_number":
         reply = RNGService.generate_toto_number()
     elif text == "/4d_number":
