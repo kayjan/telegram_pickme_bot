@@ -21,7 +21,12 @@ def local_webhook(text: str):
     return reply
 
 
-@app.post("/{}".format(TOKEN), response_model=str)
+@app.get("/prod_webhook", response_model=bool)
+async def get_prod_webhook(request: Request):
+    return True
+
+
+@app.post("/prod_webhook", response_model=str)
 async def prod_webhook(request: Request):
     data = await request.json()
     chat_id = data["message"]["chat"]["id"]
@@ -50,7 +55,7 @@ async def dummy_webhook(request: Request):
 
 @app.get("/set_webhook", response_model=Dict[str, Any])
 async def set_webhook():
-    webhook = f"{DEPLOY_URL}/{TOKEN}"
+    webhook = f"{DEPLOY_URL}/prod_webhook"
     # webhook_encoded = urllib.parse.quote(webhook, safe="")
     status = await bot.setWebhook(webhook)
     return {"status": status}
