@@ -6,10 +6,7 @@ def get_reply(text: str):
     reply = f"{text} selected"
 
     if text == "/start":
-        reply = """
-        Feeling undecided? Pick Me Bot will help you pick a choice from your options - and even generate
-        ✨random numbers✨ to huat!\n\nNote: We do not endorse gambling.
-        """
+        reply = """Feeling undecided? Pick Me Bot will help you pick a choice from your options - and even generate ✨random numbers✨ to huat!\n\nNote: We do not endorse gambling."""
     elif text == "/choices":
         reply = (
             "Type 'Choose <options separated by comma>' to ask bot to pick one option"

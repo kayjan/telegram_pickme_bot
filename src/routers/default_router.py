@@ -1,10 +1,10 @@
 import time
-import urllib.parse
+# import urllib.parse
 from typing import Any, Dict
 
 from fastapi import APIRouter, Request
 
-from src.app_context import BASE_URL, DEPLOY_URL, TOKEN, bot, client
+from src.app_context import BASE_URL, DEPLOY_URL, bot, client
 from src.services.default_service import get_reply
 
 app = APIRouter(prefix="")
@@ -22,7 +22,7 @@ def local_webhook(text: str):
 
 
 @app.get("/prod_webhook", response_model=bool)
-async def get_prod_webhook(request: Request):
+def get_prod_webhook():
     return True
 
 
