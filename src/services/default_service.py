@@ -12,7 +12,7 @@ def get_reply(text: str):
             "Type 'Choose <options separated by comma>' to ask bot to pick one option"
         )
     elif text.startswith("Choose "):
-        reply = PickMeService.n_choose_1(text.lstrip("Choose "))
+        reply = PickMeService.n_choose_1(text.lstrip("Choose").lstrip())
     elif text == "/toto_number":
         reply = RNGService.generate_toto_number()
     elif text == "/4d_number":
