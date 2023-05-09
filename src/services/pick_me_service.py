@@ -1,3 +1,5 @@
+import datetime
+
 import numpy as np
 
 empty_choice_messages = [
@@ -5,13 +7,22 @@ empty_choice_messages = [
     "Haha nice try, I need to pick from something not nothing",
     "Eh can you key in something",
     "How about you key in something for me, don't play play",
+    "How about nothing? Key in something don't trick me",
 ]
 
+dayofweek = dict(
+    zip(
+        range(7),
+        ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    )
+)[datetime.datetime.now().weekday()]
 selected_choice_messages = [
     "How about {choice}",
     "{choice} confirm won't go wrong (but don't blame me later)",
     "I think {choice} can leh",
     "Wa very tough choice, but I choose {choice}",
+    "Today we choose {choice}",
+    "On " + dayofweek + "s we choose {choice}",
 ]
 
 
