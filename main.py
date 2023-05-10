@@ -25,13 +25,17 @@ async def _choices(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def _toto_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply = get_reply("/toto_number")
-    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action=ChatAction.TYPING)
+    await context.bot.send_chat_action(
+        chat_id=update.effective_chat.id, action=ChatAction.TYPING
+    )
     await context.bot.send_message(chat_id=update.effective_chat.id, text=reply)
 
 
 async def _4d_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply = get_reply("/4d_number")
-    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action=ChatAction.TYPING)
+    await context.bot.send_chat_action(
+        chat_id=update.effective_chat.id, action=ChatAction.TYPING
+    )
     await context.bot.send_message(chat_id=update.effective_chat.id, text=reply)
 
 
@@ -39,7 +43,9 @@ async def normal_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
     """Store info provided by user and ask for the next category."""
     text = update.message.text
     if text.startswith("Choose "):
-        await context.bot.send_chat_action(chat_id=update.effective_chat.id, action=ChatAction.TYPING)
+        await context.bot.send_chat_action(
+            chat_id=update.effective_chat.id, action=ChatAction.TYPING
+        )
     reply = get_reply(text)
     await update.message.reply_text(reply)
 

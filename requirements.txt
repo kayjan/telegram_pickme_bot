@@ -1,4 +1,5 @@
 fastapi
 numpy
 python-telegram-bot
+pytz
 uvicorn

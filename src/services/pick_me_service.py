@@ -1,6 +1,7 @@
 import datetime
 
 import numpy as np
+import pytz
 
 empty_choice_messages = [
     "There is nothing to choose from, key in something leh",
@@ -15,7 +16,7 @@ dayofweek = dict(
         range(7),
         ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     )
-)[datetime.datetime.now().weekday()]
+)[datetime.datetime.now(pytz.timezone("Asia/Singapore")).weekday()]
 selected_choice_messages = [
     "How about {choice}",
     "{choice} confirm won't go wrong (but don't blame me later)",
